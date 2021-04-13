@@ -1,12 +1,18 @@
 package engine;
 
+import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class ATMMachine {
-
     public static void main(String... args) {
+
         Scanner scanner = new Scanner(System.in);
+        DecimalFormat moneyFormat = new DecimalFormat("'$'###,##0.00");
+        HashMap<String, Integer> account = new HashMap<>();
+        account.put("1234567891234567", 1234);
+
         System.out.println("====================================================");
         System.out.println("\tWelcome to this simple ATM machine");
         System.out.println("====================================================");

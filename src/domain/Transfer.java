@@ -1,6 +1,7 @@
 package domain;
 
-import repository.Operations;
+import repository.Operation;
 
-public class Transfer extends Operations {
+public class Transfer extends Operation {
+
 }

@@ -1,6 +1,6 @@
 package domain;
 
-import repository.Operations;
+import repository.Operation;
 
-public class Withdraw extends Operations {
+public class Withdraw extends Operation {
 }
