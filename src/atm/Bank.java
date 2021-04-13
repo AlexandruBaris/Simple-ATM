@@ -15,13 +15,13 @@ public class Bank {
     }
 
     public String getNewUserUUID() {
-            UUID id = UUID.randomUUID();
-        return id.toString();
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
     }
 
     public String getNewAccountUUID() {
-            UUID id = UUID.randomUUID();
-        return id.toString();
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
     }
 
     public void addAccount(Account acc) {

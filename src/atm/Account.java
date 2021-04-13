@@ -39,4 +39,17 @@ public class Account {
         return balance;
     }
 
+    public void printTxnHistory() {
+        System.out.printf("\nTransaction history of account %s\n", this.uuid);
+        for (int i = this.transactions.size() - 1; i >= 0; i--) {
+            System.out.println(this.transactions.get(i).getSummaryLine());
+        }
+        System.out.println();
+    }
+
+    public void addTxn(double amount, String memo) {
+        Transaction newTxn = new Transaction(amount, memo, this);
+        this.transactions.add(newTxn);
+    }
+
 }

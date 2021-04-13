@@ -53,11 +53,31 @@ public class User {
     }
 
     public void printAccountsSummary() {
-        System.out.printf("\n\n%s's accounts summary", this.firstName);
+        System.out.printf("\n\n%s's accounts summary\n", this.firstName);
         for (int i = 0; i < this.accounts.size(); i++) {
-            System.out.printf("%d) %s\n", this.accounts.get(i).getSummaryLine());
+            System.out.printf("  %d) %s\n", i + 1, this.accounts.get(i).getSummaryLine());
         }
         System.out.println();
+    }
+
+    public int numAccounts() {
+        return this.accounts.size();
+    }
+
+    public void printAccountTxnHistory(int accIndex) {
+        this.accounts.get(accIndex).printTxnHistory();
+    }
+
+    public double getAccBalance(int accIndex) {
+        return this.accounts.get(accIndex).getBalance();
+    }
+
+    public String getAccUUID(int accIndex) {
+        return this.accounts.get(accIndex).getUUID();
+    }
+
+    public void addAccTxn(int accIndex, double amount, String memo) {
+        this.accounts.get(accIndex).addTxn(amount, memo);
     }
 
 }
