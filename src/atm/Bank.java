@@ -2,6 +2,7 @@ package atm;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.UUID;
 
 public class Bank {
     private String name;
@@ -37,16 +38,12 @@ public class Bank {
     }
 
     public String getNewAccountUUID() {
-
         String uuid;
-        Random random = new Random();
-        int length = 10;
         boolean nonUnique;
+
         do {
-            uuid = "";
-            for (int i = 0; i < length; i++) {
-                uuid += ((Integer) random.nextInt(10)).toString();
-            }
+            UUID id = UUID.randomUUID();
+            uuid = id.toString();
             nonUnique = false;
             for (Account a : accounts) {
                 if (uuid.compareTo(a.getUUID()) == 0) {
