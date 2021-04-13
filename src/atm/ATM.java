@@ -1,6 +1,7 @@
 package atm;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class ATM {
     public static void main(String... args) {
@@ -48,6 +49,38 @@ public class ATM {
     }
 
     public static void printUserMenu(User user, Scanner scanner) {
+        user.printAccountsSummary();
+        String choice;
+        do {
+            System.out.printf("Welcome %s, please select ATM operation", user.getFirstName());
+            System.out.println("\tPress [1] Transaction history");
+            System.out.println("\tPress [2] Deposit");
+            System.out.println("\tPress [3] Withdraw");
+            System.out.println("\tPress [4] Transfer");
+            System.out.print("\tPress [5] Exit\nEnter choice: ");
+            choice = scanner.nextLine();
+
+            if (Integer.parseInt(choice) < 1 || Integer.parseInt(choice) > 5 &&
+                    Pattern.matches("[12345]", choice)) {
+                System.out.println("Invalid choice. Please choose 1-5");
+
+            }
+        } while (Integer.parseInt(choice) < 1 || Integer.parseInt(choice) > 5 &&
+                Pattern.matches("[12345]", choice));
+
+        switch (choice) {
+            case "1" -> ATM.showTxnHistory(user, scanner);
+            case "2" -> ATM.withdraw(user, scanner);
+            case "3" -> ATM.deposit(user, scanner);
+            case "4" -> ATM.transfer(user, scanner);
+        }
+
+        if (Integer.parseInt(choice) != 5) {
+            ATM.printUserMenu(user, scanner);
+        }
+    }
+
+    public static void showTxnHistory(User user, Scanner scanner) {
 
     }
 }
