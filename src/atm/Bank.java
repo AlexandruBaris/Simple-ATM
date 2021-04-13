@@ -15,39 +15,13 @@ public class Bank {
     }
 
     public String getNewUserUUID() {
-        String uuid;
-        boolean nonUnique;
-        do {
             UUID id = UUID.randomUUID();
-            uuid = id.toString();
-            nonUnique = false;
-            for (User u : users) {
-                if (uuid.compareTo(u.getUUID()) == 0) {
-                    nonUnique = true;
-                    break;
-                }
-            }
-        } while (nonUnique);
-
-        return uuid;
+        return id.toString();
     }
 
     public String getNewAccountUUID() {
-        String uuid;
-        boolean nonUnique;
-
-        do {
             UUID id = UUID.randomUUID();
-            uuid = id.toString();
-            nonUnique = false;
-            for (Account a : accounts) {
-                if (uuid.compareTo(a.getUUID()) == 0) {
-                    nonUnique = true;
-                    break;
-                }
-            }
-        } while (nonUnique);
-        return uuid;
+        return id.toString();
     }
 
     public void addAccount(Account acc) {
